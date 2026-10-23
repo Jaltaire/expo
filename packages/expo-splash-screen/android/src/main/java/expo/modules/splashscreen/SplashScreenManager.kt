@@ -24,6 +24,9 @@ object SplashScreenManager {
   }
 
   fun registerOnActivity(mainActivity: Activity) {
+    if (preventAutoHideCalled) {
+      keepSplashScreenOnScreen = true
+    }
     val splashScreen = mainActivity.installSplashScreen()
     ReactMarker.addListener(contentAppearedListener)
 
